@@ -103,6 +103,17 @@
   }
 }
 
+:root[data-yapmod-theme="black"] .invite-cta:not(:disabled):is(:hover, :focus-visible) {
+  background: var(--ym-bg-active);
+  color: var(--ym-text);
+}
+
+/* These controls use the light accent as their hover fill. */
+:root[data-yapmod-theme="black"] :is(.mc-act.primary, .voice-play, .ap-play, .vp-big, .lb-primary):not(:disabled):hover {
+  background: var(--ym-accent-hover);
+  color: var(--ym-on-accent);
+}
+
 :root[data-yapmod-theme="black"] .composer-box {
   border-radius: var(--ym-radius);
   box-shadow: inset 0 0 0 1px var(--ym-border);
