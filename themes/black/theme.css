@@ -14,8 +14,8 @@
   --ym-bg-solid: #101010;
   --ym-bg-elev: #151515;
   --ym-bg-float: #121212;
-  --ym-bg-hover: #1c1c1c;
-  --ym-bg-active: #252525;
+  --ym-bg-hover: #202020;
+  --ym-bg-active: #303030;
   --ym-bg-input: #101010;
   --ym-text: #f5f5f5;
   --ym-text-muted: #b2b2b2;
@@ -36,6 +36,20 @@
   --ym-radius: 5px;
   --ym-shadow: 0 8px 24px #0009;
   --row-radius: 4px;
+  --t-micro: 60ms;
+  --t-fade-micro: 60ms;
+  --t-panel: 90ms;
+  --t-fade-panel: 90ms;
+  --t-sheet: 120ms;
+  --t-fade-sheet: 120ms;
+  --dur-1: 60ms;
+  --dur-2: 90ms;
+  --dur-3: 120ms;
+  --press-ms: 35ms;
+  --ease-spring: ease-out;
+  --sm-spring: ease-out;
+  --hover-bg: var(--ym-bg-hover);
+  --press-bg: var(--ym-bg-active);
   --mention-text: #fff;
   --mention-bg: #252525;
   --mention-bg-hover: #333;
@@ -44,16 +58,49 @@
   --font: "Black JetBrains Mono", "JetBrains Mono", ui-monospace, monospace;
   scrollbar-color: #484848 #090909;
   accent-color: #fafafa;
-  /* Catch hard-coded badge, avatar and decoration colors across the host UI. */
-  filter: grayscale(1);
 }
 
 :root[data-yapmod-theme="black"] :where(body, body *) {
   font-family: var(--font) !important;
 }
 
+/* Use a single fill for each row state, including hosts with hover overlays. */
+:root[data-yapmod-theme="black"] .channel-row {
+  border-radius: var(--row-radius);
+}
+
+:root[data-yapmod-theme="black"] .channel-row::after {
+  background: transparent;
+}
+
 :root[data-yapmod-theme="black"] .channel-row.active {
-  box-shadow: inset 2px 0 var(--ym-accent);
+  color: var(--ym-text);
+  background: var(--ym-bg-active);
+  box-shadow: none;
+}
+
+:root[data-yapmod-theme="black"] .rail-pill.on {
+  opacity: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :root[data-yapmod-theme="black"] .sidebar-scroll {
+    --row-h: 34px;
+  }
+
+  :root[data-yapmod-theme="black"] .channel-row:not(.active):hover,
+  :root[data-yapmod-theme="black"] .icon-btn:not(:disabled):hover {
+    color: var(--ym-text);
+    background: var(--ym-bg-hover);
+  }
+
+  :root[data-yapmod-theme="black"] .channel-row.active:hover {
+    background: #383838;
+  }
+
+  :root[data-yapmod-theme="black"] .channel-row:not(:hover):not(:focus-within) .channel-tools {
+    opacity: 0;
+  }
 }
 
 :root[data-yapmod-theme="black"] .composer-box {
@@ -73,4 +120,49 @@
 :root[data-yapmod-theme="black"] ::selection {
   color: #000;
   background: #eee;
+}
+
+/* Some message components supply literal colors inline. Keep images untouched. */
+:root[data-yapmod-theme="black"] :is(.msg-author, .reply-author, .new-here-tag, .rail-folder) {
+  color: var(--ym-text) !important;
+}
+
+:root[data-yapmod-theme="black"] :is(.mention, .bot-btn.link) {
+  color: var(--ym-text) !important;
+  background-color: var(--ym-bg-active) !important;
+}
+
+:root[data-yapmod-theme="black"] .main a[href] {
+  color: var(--ym-text);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+/* Navigation feedback follows the pointer without a fade or spring. */
+:root[data-yapmod-theme="black"] :is(.channel-row, .channel-main, .channel-tools, .rail-item, .icon-btn, .composer-box),
+:root[data-yapmod-theme="black"] :is(.channel-row, .rail-item, .icon-btn)::after {
+  transition: none !important;
+}
+
+:root[data-yapmod-theme="black"] :is(.channel-main, .rail-item, .icon-btn):is(:hover, :active) {
+  transform: none;
+}
+
+:root[data-yapmod-theme="black"] .composer-box textarea:focus-visible {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-yapmod-theme="black"] {
+    --t-micro: 0ms;
+    --t-fade-micro: 0ms;
+    --t-panel: 0ms;
+    --t-fade-panel: 0ms;
+    --t-sheet: 0ms;
+    --t-fade-sheet: 0ms;
+    --dur-1: 0ms;
+    --dur-2: 0ms;
+    --dur-3: 0ms;
+    --press-ms: 0ms;
+  }
 }
