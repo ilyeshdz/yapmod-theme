@@ -1,0 +1,76 @@
+@font-face {
+  font-family: "Black JetBrains Mono";
+  src: local("JetBrains Mono Variable"), url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+:root[data-yapmod-theme="black"] {
+  color-scheme: dark;
+  --ym-bg-rail: #000;
+  --ym-bg-side: #090909;
+  --ym-bg-main: #050505;
+  --ym-bg-solid: #101010;
+  --ym-bg-elev: #151515;
+  --ym-bg-float: #121212;
+  --ym-bg-hover: #1c1c1c;
+  --ym-bg-active: #252525;
+  --ym-bg-input: #101010;
+  --ym-text: #f5f5f5;
+  --ym-text-muted: #b2b2b2;
+  --ym-text-faint: #929292;
+  --ym-border: #333;
+  --ym-accent: #fafafa;
+  --ym-accent-hover: #d6d6d6;
+  --ym-on-accent: #080808;
+  --ym-accent-soft: #ffffff18;
+  --ym-danger: #fff;
+  --ym-warning: #ccc;
+  --ym-success: #aaa;
+  --ym-brand: #fafafa;
+  --ym-brand-2: #ddd;
+  --ym-brand-3: #aaa;
+  --ym-brand-soft: #ffffff18;
+  --ym-brand-hover: #ffffff0d;
+  --ym-radius: 5px;
+  --ym-shadow: 0 8px 24px #0009;
+  --row-radius: 4px;
+  --mention-text: #fff;
+  --mention-bg: #252525;
+  --mention-bg-hover: #333;
+  --mention-me-bg: #282828;
+  --mention-bar: #ccc;
+  --font: "Black JetBrains Mono", "JetBrains Mono", ui-monospace, monospace;
+  scrollbar-color: #484848 #090909;
+  accent-color: #fafafa;
+  /* Catch hard-coded badge, avatar and decoration colors across the host UI. */
+  filter: grayscale(1);
+}
+
+:root[data-yapmod-theme="black"] :where(body, body *) {
+  font-family: var(--font) !important;
+}
+
+:root[data-yapmod-theme="black"] .channel-row.active {
+  box-shadow: inset 2px 0 var(--ym-accent);
+}
+
+:root[data-yapmod-theme="black"] .composer-box {
+  border-radius: var(--ym-radius);
+  box-shadow: inset 0 0 0 1px var(--ym-border);
+}
+
+:root[data-yapmod-theme="black"] .composer-box:focus-within {
+  box-shadow: inset 0 0 0 1px var(--ym-text-muted);
+}
+
+:root[data-yapmod-theme="black"] :focus-visible {
+  outline: 2px solid var(--ym-accent);
+  outline-offset: 2px;
+}
+
+:root[data-yapmod-theme="black"] ::selection {
+  color: #000;
+  background: #eee;
+}

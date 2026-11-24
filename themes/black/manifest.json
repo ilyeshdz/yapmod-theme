@@ -1,0 +1,11 @@
+{
+  "id": "black",
+  "name": "Black",
+  "version": "1.0.0",
+  "author": "ilyeshdz",
+  "description": "Ink-black surfaces, white accents and JetBrains Mono throughout Yapin.",
+  "mode": "dark",
+  "api": 1,
+  "css": "theme.css",
+  "tags": ["black", "monochrome", "minimal", "monospace"]
+}
