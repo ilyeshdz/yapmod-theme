@@ -17,3 +17,5 @@ Black pairs an ink-black channel view with graphite sidebars and white accents. 
 ### Theme source
 
 Each directory under [themes/](themes/) is a standalone Yapmod theme package. For Black, [manifest.json](themes/black/manifest.json) declares its identity and dark mode, and [theme.css](themes/black/theme.css) defines the palette, font and control styles. The font loads from Google Fonts’ asset host, with a local monospace fallback.
+
+Black is available for [personal, non-commercial use](themes/black/LICENSE). Redistribution requires permission.
