@@ -25,9 +25,15 @@ for (const directory of (await readdir(new URL('themes/', root), { withFileTypes
   const variables = Object.entries({ ...bindings, ...aliases })
     .filter(([, token]) => tokens.includes(token))
     .map(([host, token]) => `  --${host}: var(--ym-${token});`).join('\n');
+  // Server and personal palettes also set these variables on <html>.
+  const paletteRoots = [
+    'html:root', 'html:root[data-theme]', 'html:root[data-srv-accent]',
+    'html:root[data-tint][data-theme]', 'html:root[data-srv-tint]:not([data-tint])',
+    'html:root[data-srv-tint][data-theme]:not([data-tint])'
+  ].join(',\n');
   const header = `/**\n * @name ${name}\n * @author ${author}\n * @description ${description}\n */`;
   const url = `themes/${id}.theme.css`;
-  await writeFile(new URL(url, output), `${header}\n${stylesheet}\nhtml:root, :root[data-theme] {\n${variables}\n}\n`);
+  await writeFile(new URL(url, output), `${header}\n${stylesheet}\n${paletteRoots} {\n${variables}\n}\n`);
   themes.push({ name, author, description, url });
 }
 assert.ok(themes.length, 'The catalog needs at least one theme.');

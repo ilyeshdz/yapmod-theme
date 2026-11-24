@@ -119,6 +119,27 @@
   }
 }
 
+/* Yapin hard-codes white ink on these accent and status fills. Map the
+   foreground to the theme palette in exactly the states that paint the fill. */
+:root[data-yapmod-theme="black"] :is(
+  .send-btn:enabled, .mention-all, .threads-count, .mc-act.primary,
+  .vp-big, .swipe-reply.ready, .onb-role-chip.on, .mod-back-pill,
+  .dm-safety-staff, .nb-cat.on, .board-btn.on, .reward-mult, .pull-older.armed,
+  .boost-tier-tag, .cpk-applied, .cs-step-n, .cc-in-settings .hpx-btn.hpx-btn-white,
+  .at-count, .inbox-tab-count, .inbox-pill.ment, .qs-ment, .live-badge,
+  .mc-act.danger, .community-takedown, .attach-remove:hover, .tri-btn.deny.on,
+  .vb.hangup, .vb.on, .dm-call-controls .vb.off, .mini-call-btn.hangup,
+  .tint-swatch .x, .quiz-mark.on, .cc.on, .rail-item.add:hover,
+  .emoji-picker .add-emoji:hover, .btn.ghost-accent:hover, .desktop-promo-icon,
+  .pcb-btn.on, .pcb-row.on .pcb-row-ic, .gs-list button.done .gs-check
+),
+:root[data-yapmod-theme="black"] :is(
+  .fx-pick-opt.on, .badge-pick-opt.on, .tint-tile.on, .theme-option.on,
+  .cpk-tile.on .cpk-art
+)::after {
+  color: var(--ym-on-accent);
+}
+
 :root[data-yapmod-theme="black"] .invite-embed .btn.join {
   background: var(--ym-accent);
   color: var(--ym-on-accent);
