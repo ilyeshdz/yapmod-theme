@@ -10,9 +10,16 @@ Black pairs an ink-black channel view with graphite sidebars and white accents. 
 
 ### Install
 
-1. [Download the collection](https://github.com/ilyeshdz/yapmod-theme/archive/refs/heads/main.zip) and unzip it.
-2. Open **Settings → Themes → Import theme** in Yapmod and select the **themes/black** folder.
-3. Switch on **Black** in the theme gallery.
+1. In Yapmod, open **Themes → Add Theme → Collection**.
+2. Paste the collection URL and select **Add Collection**.
+
+   ```text
+   https://raw.githubusercontent.com/ilyeshdz/yapmod-theme/theme-dist/index.json
+   ```
+
+3. Expand **ilyeshdz themes**, install **Black**, and enable it.
+
+For **Add Theme → URL**, use the [standalone stylesheet](https://raw.githubusercontent.com/ilyeshdz/yapmod-theme/theme-dist/themes/black.theme.css). On legacy Yapmod, import the **themes/black** folder instead.
 
 ### Theme source
 
