@@ -1,0 +1,256 @@
+/**
+ * @name Black
+ * @author ilyeshdz
+ * @description Ink-black surfaces, white accents and JetBrains Mono throughout Yapin.
+ */
+/*
+ * Black theme — Personal Use License
+ * Copyright 2026 ilyeshdz
+ *
+ * You may download, install and use Black for personal, non-commercial use.
+ * Redistribution, republication, sublicensing and commercial use require prior
+ * written permission from the copyright holder.
+ *
+ * The copyright holder authorizes Yapmod to host and distribute this version
+ * through its official repository and Community catalog, and to display the
+ * accompanying preview for that listing.
+ *
+ * These terms apply to the original theme files. Third-party fonts, artwork
+ * and trademarks remain subject to their respective owners' terms.
+ */
+
+@font-face {
+  font-family: "Black JetBrains Mono";
+  src: local("JetBrains Mono Variable"), url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+html:root {
+  color-scheme: dark;
+  --ym-bg-rail: #000;
+  --ym-bg-side: #090909;
+  --ym-bg-main: #050505;
+  --ym-bg-solid: #101010;
+  --ym-bg-elev: #151515;
+  --ym-bg-float: #121212;
+  --ym-bg-hover: #202020;
+  --ym-bg-active: #303030;
+  --ym-bg-input: #101010;
+  --ym-text: #f5f5f5;
+  --ym-text-muted: #b2b2b2;
+  --ym-text-faint: #929292;
+  --ym-border: #333;
+  --ym-accent: #fafafa;
+  --ym-accent-hover: #d6d6d6;
+  --ym-on-accent: #080808;
+  --ym-accent-soft: #ffffff18;
+  --ym-danger: #fff;
+  --ym-warning: #ccc;
+  --ym-success: #aaa;
+  --ym-brand: #fafafa;
+  --ym-brand-2: #ddd;
+  --ym-brand-3: #aaa;
+  --ym-brand-soft: #ffffff18;
+  --ym-brand-hover: #ffffff0d;
+  --ym-radius: 5px;
+  --ym-shadow: 0 8px 24px #0009;
+  --row-radius: 4px;
+  --t-micro: 60ms;
+  --t-fade-micro: 60ms;
+  --t-panel: 90ms;
+  --t-fade-panel: 90ms;
+  --t-sheet: 120ms;
+  --t-fade-sheet: 120ms;
+  --dur-1: 60ms;
+  --dur-2: 90ms;
+  --dur-3: 120ms;
+  --press-ms: 35ms;
+  --ease-spring: ease-out;
+  --sm-spring: ease-out;
+  --hover-bg: var(--ym-bg-hover);
+  --press-bg: var(--ym-bg-active);
+  --mention-text: #fff;
+  --mention-bg: #252525;
+  --mention-bg-hover: #333;
+  --mention-me-bg: #282828;
+  --mention-bar: #ccc;
+  --font: "Black JetBrains Mono", "JetBrains Mono", ui-monospace, monospace;
+  scrollbar-color: #484848 #090909;
+  accent-color: #fafafa;
+}
+
+html:root :where(body, body *) {
+  font-family: var(--font) !important;
+}
+
+/* Use a single fill for each row state, including hosts with hover overlays. */
+html:root .channel-row {
+  border-radius: var(--row-radius);
+}
+
+html:root .channel-row::after {
+  background: transparent;
+}
+
+html:root .channel-row.active {
+  color: var(--ym-text);
+  background: var(--ym-bg-active);
+  box-shadow: none;
+}
+
+html:root .rail-pill.on {
+  opacity: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html:root .sidebar-scroll {
+    --row-h: 34px;
+  }
+
+  html:root .channel-row:not(.active):hover,
+  html:root .icon-btn:not(:disabled):hover {
+    color: var(--ym-text);
+    background: var(--ym-bg-hover);
+  }
+
+  html:root .channel-row.active:hover {
+    background: #383838;
+  }
+
+  html:root .channel-row:not(:hover):not(:focus-within) .channel-tools {
+    opacity: 0;
+  }
+}
+
+html:root .invite-embed .btn.join {
+  background: var(--ym-accent);
+  color: var(--ym-on-accent);
+}
+
+html:root .invite-embed .btn.join:not(:disabled):is(:hover, :focus-visible) {
+  background: var(--ym-accent-hover);
+}
+
+html:root :is(.badge:not(.mention), .rail-badge, .nl-tab-badge) {
+  background: var(--ym-accent);
+  color: var(--ym-on-accent);
+}
+
+html:root .toast {
+  background: var(--ym-bg-float);
+  color: var(--ym-text);
+}
+
+html:root .notify-menu button:not(:disabled):is(:hover, :focus-visible),
+html:root .invite-cta:not(:disabled):is(:hover, :focus-visible) {
+  background: var(--ym-bg-active);
+  color: var(--ym-text);
+}
+
+/* These controls use the light accent as their hover fill. */
+html:root :is(.mc-act.primary, .voice-play, .ap-play, .vp-big, .lb-primary):not(:disabled):hover {
+  background: var(--ym-accent-hover);
+  color: var(--ym-on-accent);
+}
+
+html:root .composer-box {
+  border-radius: var(--ym-radius);
+  box-shadow: inset 0 0 0 1px var(--ym-border);
+}
+
+html:root .composer-box:focus-within {
+  box-shadow: inset 0 0 0 1px var(--ym-text-muted);
+}
+
+html:root :focus-visible {
+  outline: 2px solid var(--ym-accent);
+  outline-offset: 2px;
+}
+
+html:root ::selection {
+  color: #000;
+  background: #eee;
+}
+
+/* Some message components supply literal colors inline. Keep images untouched. */
+html:root :is(.msg-author, .reply-author, .new-here-tag, .rail-folder) {
+  color: var(--ym-text) !important;
+}
+
+html:root :is(.mention, .bot-btn.link) {
+  color: var(--ym-text) !important;
+  background-color: var(--ym-bg-active) !important;
+}
+
+html:root .main a[href] {
+  color: var(--ym-text);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+/* Navigation feedback follows the pointer without a fade or spring. */
+html:root :is(.channel-row, .channel-main, .channel-tools, .rail-item, .icon-btn, .composer-box),
+html:root :is(.channel-row, .rail-item, .icon-btn)::after {
+  transition: none !important;
+}
+
+html:root :is(.channel-main, .rail-item, .icon-btn):is(:hover, :active) {
+  transform: none;
+}
+
+html:root .composer-box textarea:focus-visible {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:root {
+    --t-micro: 0ms;
+    --t-fade-micro: 0ms;
+    --t-panel: 0ms;
+    --t-fade-panel: 0ms;
+    --t-sheet: 0ms;
+    --t-fade-sheet: 0ms;
+    --dur-1: 0ms;
+    --dur-2: 0ms;
+    --dur-3: 0ms;
+    --press-ms: 0ms;
+  }
+}
+
+html:root, :root[data-theme] {
+  --bg-rail: var(--ym-bg-rail);
+  --bg-side: var(--ym-bg-side);
+  --bg-main: var(--ym-bg-main);
+  --bg-solid: var(--ym-bg-solid);
+  --bg-elev: var(--ym-bg-elev);
+  --bg-float: var(--ym-bg-float);
+  --bg-hover: var(--ym-bg-hover);
+  --bg-active: var(--ym-bg-active);
+  --bg-input: var(--ym-bg-input);
+  --text: var(--ym-text);
+  --text-muted: var(--ym-text-muted);
+  --text-faint: var(--ym-text-faint);
+  --border: var(--ym-border);
+  --accent: var(--ym-accent);
+  --accent-hover: var(--ym-accent-hover);
+  --on-accent: var(--ym-on-accent);
+  --accent-soft: var(--ym-accent-soft);
+  --danger: var(--ym-danger);
+  --warning: var(--ym-warning);
+  --success: var(--ym-success);
+  --brand: var(--ym-brand);
+  --brand-2: var(--ym-brand-2);
+  --brand-3: var(--ym-brand-3);
+  --brand-soft: var(--ym-brand-soft);
+  --brand-hover: var(--ym-brand-hover);
+  --radius: var(--ym-radius);
+  --shadow: var(--ym-shadow);
+  --bg-side-solid: var(--ym-bg-side);
+  --bg-floating: var(--ym-bg-float);
+  --accent-fill: var(--ym-accent);
+  --accent-fill-hover: var(--ym-accent-hover);
+  --tint-a: var(--ym-accent);
+  --fx-accent: var(--ym-accent);
+}

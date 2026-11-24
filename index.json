@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "name": "ilyeshdz themes",
+  "description": "Monochrome themes for Yapmod.",
+  "themes": [
+    {
+      "name": "Black",
+      "author": "ilyeshdz",
+      "description": "Ink-black surfaces, white accents and JetBrains Mono throughout Yapin.",
+      "url": "themes/black.theme.css"
+    }
+  ]
+}
