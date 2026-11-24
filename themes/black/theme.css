@@ -103,6 +103,26 @@
   }
 }
 
+:root[data-yapmod-theme="black"] .invite-embed .btn.join {
+  background: var(--ym-accent);
+  color: var(--ym-on-accent);
+}
+
+:root[data-yapmod-theme="black"] .invite-embed .btn.join:not(:disabled):is(:hover, :focus-visible) {
+  background: var(--ym-accent-hover);
+}
+
+:root[data-yapmod-theme="black"] :is(.badge:not(.mention), .rail-badge, .nl-tab-badge) {
+  background: var(--ym-accent);
+  color: var(--ym-on-accent);
+}
+
+:root[data-yapmod-theme="black"] .toast {
+  background: var(--ym-bg-float);
+  color: var(--ym-text);
+}
+
+:root[data-yapmod-theme="black"] .notify-menu button:not(:disabled):is(:hover, :focus-visible),
 :root[data-yapmod-theme="black"] .invite-cta:not(:disabled):is(:hover, :focus-visible) {
   background: var(--ym-bg-active);
   color: var(--ym-text);
